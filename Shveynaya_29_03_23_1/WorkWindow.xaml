@@ -1,0 +1,42 @@
+﻿<Window x:Class="Shveynaya_29_03_23_1.WorkWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Shveynaya_29_03_23_1"
+        mc:Ignorable="d"
+        Title="WorkWindow" Height="450" Width="800" MinWidth="800" MinHeight="450">
+    <Window.Resources>
+        <Style x:Key="SideButton">
+            <Setter Property="Button.Margin" Value="5,0,-1,0"/>
+            <Setter Property="Button.Height" Value="35"/>
+            <Setter Property="Button.BorderBrush" Value="{x:Null}"/>
+            <Setter Property="Button.FontSize" Value="15"/>
+            <Setter Property="Button.Background" Value="DarkSalmon"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <StackPanel Height="40" Background="Indigo" Orientation="Horizontal">
+                <Button Content="Выход" x:Name="GoAuthButton" Click="GoAuthButton_Click" Width="40" HorizontalAlignment="Left" Margin="10"/>
+                <TextBlock x:Name="UserInfoTextBlock" Margin="10"/>
+            </StackPanel>
+            <DockPanel FlowDirection="LeftToRight" LastChildFill="True" Height="390">
+                <StackPanel Margin="0,5" Orientation="Vertical" Width="120" DockPanel.Dock="Left">
+                    <Button x:Name="GoCustomerMakeOrderButton" Content="Сделать заказ" Style="{StaticResource SideButton}"/>
+                    <Button x:Name="GoCustomerOrderListButton" Content="Заказы(Заказчик)" Style="{StaticResource SideButton}"/>
+                    <Button x:Name="GoManagerOrderListButton" Content="Заказы(Менеджер)" Style="{StaticResource SideButton}"/>
+                    <Button x:Name="GoManagerProductListButton" Content="Изделия" Style="{StaticResource SideButton}"/>
+                    <Button x:Name="GoStorekeeperFabricListButton" Content="Ткани" Style="{StaticResource SideButton}"/>
+                    <Button x:Name="GoStorekeeperFurnitureListButton" Content="Фурнитура" Style="{StaticResource SideButton}"/>
+                    <Button x:Name="GoStorekeepreProductionListButton" Content="Поставки" Style="{StaticResource SideButton}" Click="GoStorekeepreProductionListButton_Click"/>
+                </StackPanel>
+                <StackPanel Background="IndianRed">
+                    <Frame x:Name="Menu" NavigationUIVisibility="Hidden"  />
+                </StackPanel>
+            </DockPanel>
+            
+        </StackPanel>
+        
+    </Grid>
+</Window>
