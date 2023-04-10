@@ -10,6 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Shveynaya_29_03_23_1
@@ -22,6 +23,7 @@ namespace Shveynaya_29_03_23_1
         public WorkWindow()
         {
             InitializeComponent();
+
             switch (CurrentUser.CUser.IdRole)
             {
                 case 2:
@@ -38,7 +40,8 @@ namespace Shveynaya_29_03_23_1
 
         private void GoStorekeepreProductionListButton_Click(object sender, RoutedEventArgs e)
         {
-            //Menu.Content = new StorekeeperFabricListPage();
+            Menu.NavigationService.Navigate(new Uri("./../Pages/StorekeeperFabricListPage.xaml", UriKind.RelativeOrAbsolute));
+
         }
     }
 }

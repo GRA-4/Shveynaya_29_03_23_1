@@ -5,51 +5,54 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Shveynaya_29_03_23_1"
       mc:Ignorable="d" 
-      d:DesignHeight="390" d:DesignWidth="680"
-      Title="StorekeeperFabricList" Background="Cornsilk">
+      d:DesignHeight="460" d:DesignWidth="680" 
+      Title="StorekeeperFabricList" Background="White">
 
     <Grid>
-
+        <StackPanel>
+            
+        
         <DockPanel LastChildFill="True">
             <StackPanel Orientation="Horizontal" Height="50" Width="440" HorizontalAlignment="Center" DockPanel.Dock="Top">
-                <TextBox Width="320" Margin="10"></TextBox>
-                <Button Content="Иск" Margin="10" Width="30" x:Name="SearchButton"/>
-                <Button Margin="10" Width="30" x:Name="RefreshButton"/>
+                <TextBox Width="320" Margin="10" x:Name="SearchFabricStockTextBox"></TextBox>
+                <Button Content="Иск" Margin="10" Width="30" x:Name="SearchButton" Click="SearchButton_Click"/>
+                <Button Content="Обн" Margin="10" Width="30" x:Name="RefreshButton" Click="RefreshButton_Click"/>
             </StackPanel>
-            <StackPanel Orientation="Vertical" DockPanel.Dock="Bottom" Height="200">
+            <StackPanel Visibility="Collapsed" Orientation="Vertical" DockPanel.Dock="Bottom" Height="auto">
                 <DockPanel FlowDirection="LeftToRight" HorizontalAlignment="Stretch" Margin="20,0">
-                    <Button x:Name="MakeDocument" Margin="5" Width="40" Height="40" DockPanel.Dock="Right" Content="Док"/>
-                    <Button x:Name="AddToDataGrid" Margin="5" Width="40" Height="40" Content="+"/>
-                    <Button x:Name="RemoveFromDataGrid" Margin="5" Width="40" Height="40" Content="-"/>
+                    <Button Click="MakeDocument_Click" x:Name="MakeDocument" Margin="5" Width="40" Height="40" DockPanel.Dock="Right" Content="Док"/>
+                    <Button Click="AddToDataGrid_Click" x:Name="AddToDataGrid" Margin="5" Width="40" Height="40" Content="+"/>
+                    <Button Click="RemoveFromDataGrid_Click" x:Name="RemoveFromDataGrid" Margin="5" Width="40" Height="40" Content="-"/>
                     <Button x:Name="df" Margin="5" Width="40" Height="40" HorizontalAlignment="Left"/>
                 </DockPanel>
 
-                <DataGrid Margin="15,5" x:Name="StorekeeperFabricListDataGrid" Height="130" IsReadOnly="True" AutoGenerateColumns="False">
+                <DataGrid Visibility="Collapsed" Margin="15,5" x:Name="StorekeeperFabricListDataGrid" Height="130" IsReadOnly="True" AutoGenerateColumns="False">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Арт."/>
-                        <DataGridTextColumn Header="Наименование" />
-                        <DataGridTextColumn Header="Ширина" />
+                        <DataGridTextColumn Binding="{Binding Id}" Header="Арт."/>
+                        <DataGridTextColumn Binding="{Binding Name}" Header="Наименование" />
+                        <DataGridTextColumn Binding="{Binding Width}" Header="Ширина" />
+                        <DataGridComboBoxColumn x:Name="WidthUnitComboBox"  Header="Единица"/>
+                        <DataGridTextColumn Binding="{Binding Height}" Header="Длина" />
                         <DataGridComboBoxColumn Header="Единица"/>
-                        <DataGridTextColumn Header="Длина" />
-                        <DataGridComboBoxColumn Header="Единица"/>
-                        <DataGridTextColumn Header="Закупочная цена" />
+                        <DataGridTextColumn Binding="{Binding PurchasePrice}" Header="Закупочная цена" />
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>
-            <DataGrid x:Name="FabricListDataGrid" IsReadOnly="True" AutoGenerateColumns="False">
+            <DataGrid Height="140" VerticalScrollBarVisibility="Visible" x:Name="FabricListDataGrid" IsReadOnly="True" AutoGenerateColumns="False">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Арт." IsReadOnly="True"/>
-                    <DataGridTextColumn Header="Наименование" IsReadOnly="True"/>
-                    <DataGridTextColumn Header="Ширина" />
-                    <DataGridComboBoxColumn Header="Единица"/>
-                    <DataGridTextColumn Header="Длина" />
-                    <DataGridComboBoxColumn Header="Единица"/>
-                    <DataGridTextColumn Header="Закупочная цена" />
+                    <DataGridTextColumn Binding="{Binding Id}" Header="Арт." IsReadOnly="True"/>
+                    <DataGridTextColumn Binding="{Binding Name}" Header="Наименование" IsReadOnly="True"/>
+                    <DataGridTextColumn Binding="{Binding Width}" Header="Ширина" />
+                    <DataGridTextColumn Binding="{Binding Unit}" Header="Единица"/>
+                    <DataGridTextColumn Binding="{Binding Height}" Header="Длина" />
+                    <DataGridTextColumn Binding="{Binding Unit1}" Header="Единица"/>
+                    <DataGridTextColumn Binding="{Binding PurchasePrice}" Header="Закупочная цена" />
                 </DataGrid.Columns>
             </DataGrid>
 
         </DockPanel>
-
+            <Frame x:Name="DocumentFrame"/>
+        </StackPanel>
 
    </Grid>
 </Page>

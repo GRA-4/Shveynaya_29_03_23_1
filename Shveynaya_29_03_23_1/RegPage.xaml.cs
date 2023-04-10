@@ -45,14 +45,11 @@ namespace Shveynaya_29_03_23_1
                         db.User.Add(user);
                         db.SaveChanges();
                         CurrentUser.CUser = user;
-                        //AdminWindow AdmW = new AdminWindow() { User = user };
                         MessageBox.Show("Добро пожаловать, "+CurrentUser.CUser.Login);
 
                         AuthPage authPage = new AuthPage();
                         this.NavigationService.Navigate(authPage);
 
-                        //AdmW.Show();
-                        //this.Close();
                     }
                     else
                     {

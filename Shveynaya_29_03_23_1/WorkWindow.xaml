@@ -5,23 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Shveynaya_29_03_23_1"
         mc:Ignorable="d"
-        Title="WorkWindow" Height="450" Width="800" MinWidth="800" MinHeight="450">
+        Title="WorkWindow" Height="520" Width="800" MinWidth="800" MinHeight="450">
     <Window.Resources>
         <Style x:Key="SideButton">
             <Setter Property="Button.Margin" Value="5,0,-1,0"/>
             <Setter Property="Button.Height" Value="35"/>
             <Setter Property="Button.BorderBrush" Value="{x:Null}"/>
             <Setter Property="Button.FontSize" Value="15"/>
-            <Setter Property="Button.Background" Value="DarkSalmon"/>
+            <Setter Property="Button.Background" Value="#E0A9AF"/>
         </Style>
     </Window.Resources>
     <Grid>
         <StackPanel Orientation="Vertical">
-            <StackPanel Height="40" Background="Indigo" Orientation="Horizontal">
+            <StackPanel Height="40" Background="#FFB5D5CA" Orientation="Horizontal">
                 <Button Content="Выход" x:Name="GoAuthButton" Click="GoAuthButton_Click" Width="40" HorizontalAlignment="Left" Margin="10"/>
                 <TextBlock x:Name="UserInfoTextBlock" Margin="10"/>
             </StackPanel>
-            <DockPanel FlowDirection="LeftToRight" LastChildFill="True" Height="390">
+            <DockPanel FlowDirection="LeftToRight" LastChildFill="True" Height="460">
                 <StackPanel Margin="0,5" Orientation="Vertical" Width="120" DockPanel.Dock="Left">
                     <Button x:Name="GoCustomerMakeOrderButton" Content="Сделать заказ" Style="{StaticResource SideButton}"/>
                     <Button x:Name="GoCustomerOrderListButton" Content="Заказы(Заказчик)" Style="{StaticResource SideButton}"/>
@@ -31,7 +31,7 @@
                     <Button x:Name="GoStorekeeperFurnitureListButton" Content="Фурнитура" Style="{StaticResource SideButton}"/>
                     <Button x:Name="GoStorekeepreProductionListButton" Content="Поставки" Style="{StaticResource SideButton}" Click="GoStorekeepreProductionListButton_Click"/>
                 </StackPanel>
-                <StackPanel Background="IndianRed">
+                <StackPanel Background="#E0A9AF">
                     <Frame x:Name="Menu" NavigationUIVisibility="Hidden"  />
                 </StackPanel>
             </DockPanel>
