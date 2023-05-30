@@ -39,8 +39,6 @@ namespace Shveynaya_29_03_23_1
         public StorekeeperFabricList()
         {
             InitializeComponent();
-            AddToDataGrid.IsEnabled = false;
-            RemoveFromDataGrid.IsEnabled = false;
             db = new Shveynaya3Entities();
 
             DocumentFrame.NavigationService.Navigate(new Uri("./../Pages/StorekeeperDocumentPage.xaml", UriKind.RelativeOrAbsolute));
